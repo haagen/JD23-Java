@@ -56,5 +56,22 @@ public class Main {
         long timePassed = System.currentTimeMillis() - timestamp;
         System.out.printf("Arbetet tog %d ms\n", timePassed);
 
+        //System.out.println("\033[H\033[2J");
+
+        System.out.println("Det största talet är: " + maxNumber(7, 4));
+        System.out.println("Omkretsen är " + circumferenceCircle(56.2));
+
     }
+
+    private static int maxNumber(int tal1, int tal2) {
+        if(tal1 > tal2) {
+            return tal1;
+        }
+        return tal2;
+    }
+
+    private static double circumferenceCircle(double radius) {
+        return 2*3.14*radius;
+    }
+
 }

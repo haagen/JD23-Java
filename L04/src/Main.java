@@ -3,9 +3,12 @@ import java.util.*; // Importera allt i paketet
 public class Main {
     public static void main(String[] args) {
 
-            //javaArray();
-            //javaArrayList();
-            javaLinkedList();
+        //javaArray();
+        //javaArrayList();
+        //javaLinkedList();
+        //javaHashSet();
+        //javaHashMap();
+        javaIterators();
 
     }
 
@@ -102,6 +105,88 @@ public class Main {
                 top10MetalBands.getFirst(),
                 top10MetalBands.getLast()
         );
+    }
+
+    public static void javaHashSet() {
+
+        // Ett nytt tomt Set
+        HashSet<String> bilar = new HashSet<String>();
+        bilar.add("Suzuki");
+        bilar.add("Volvo");
+        bilar.add("Land Rover");
+        bilar.add("Lada");
+        bilar.add("Suzuki");
+        System.out.println("Bilar " + bilar);
+
+        if(bilar.contains("Lada")) {
+            System.out.println("Du äger redan en Lada! Köp inte fler!");
+        } else {
+            System.out.println("Du äger inte en Lada!");
+        }
+
+        System.out.printf("Du äger just nu %d bilmärken\n", bilar.size());
+
+        for (String bil : bilar) {
+            if(bil.length() >= 5) {
+                System.out.printf("%s har %d tecken\n", bil, bil.length());
+            }
+        }
+
+    }
+
+    public static void javaHashMap() {
+
+        // Skapa en ny tom Map
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        capitalCities.put("Norway", "Oslo");
+        capitalCities.put("Denmark", "Copenhagen");
+        capitalCities.put("Sweden", "Stockholm");
+        System.out.println(capitalCities);
+
+        System.out.printf("Danmarks huvudstad heter %s\n", capitalCities.get("Denmark"));
+
+        // Skapa en Map som innehåller bilmärken och listor med
+        // modeller för de bilmärkena
+
+        HashMap<String, ArrayList<String>> cars = new HashMap<String, ArrayList<String>>();
+
+        ArrayList<String> models = new ArrayList<String>();
+        models.add("Samurai");
+        models.add("Gand Vitara");
+        cars.put("Suzuki", models);
+
+        models = new ArrayList<String>();
+        models.add("XC60");
+        models.add("240");
+        models.add("160");
+        cars.put("Volvo", models);
+        models = null;
+        System.out.println(cars);
+
+        System.out.printf("Suzuki modeller: %s\n", cars.get("Suzuki"));
+        System.out.printf("Alla mina bilmärken: %s\n", cars.keySet());
+        System.out.printf("Alla min bilmodeller: %s\n", cars.values());
+
+    }
+
+    public static void javaIterators() {
+
+        // Tom lista
+        ArrayList<String> pokemonCards = new ArrayList<String>();
+        pokemonCards.add("Snorlax");
+        pokemonCards.add("Balbasaur");
+        pokemonCards.add("Magikarp");
+
+        Iterator<String> itr = pokemonCards.iterator();
+        while(itr.hasNext()) {
+            String card = itr.next();
+            System.out.println("Next card was: " + card);
+            if(card.equals("Balbasaur")) {
+                itr.remove();
+            }
+        }
+        System.out.println("Hela listan efter iterator-loopen: " + pokemonCards);
+
     }
 
 }

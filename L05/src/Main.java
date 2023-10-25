@@ -1,6 +1,23 @@
 public class Main {
     public static void main(String[] args) {
 
+        //lesson1();
+        lesson2();
+
+    }
+
+    static void lesson2() {
+
+        Pokemon chansey = new Pokemon("Chansey", 110, "Jord", 60);
+        Pokemon pikachu = new Pokemon("Pikachu", 90, "Eld", 80);
+
+        pikachu.attack(chansey);
+        pikachu.stats();
+
+
+    }
+
+    static void lesson1() {
         Car suzuki = new Car("Suzuki", "Samurai", "Black", 1986, 90);
         suzuki.year = 1986;
 

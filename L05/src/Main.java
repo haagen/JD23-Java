@@ -2,8 +2,16 @@ public class Main {
     public static void main(String[] args) {
 
         //lesson1();
-        lesson2();
+        //lesson2();
 
+        lesson3();
+
+    }
+
+    static void lesson3() {
+        Pet hund = new Pet("Boss", 3, "Hund");
+        Pet cat = new Pet("Sickan", 12, "Katt");
+        Pet pp = new Pet("Plutten", 23, "Häst");
     }
 
     static void lesson2() {

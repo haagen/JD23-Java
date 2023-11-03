@@ -1,7 +1,14 @@
 import javax.swing.*;
-public class GUI {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    GUI() {
+public class GUI implements ActionListener {
+
+    private JTextField textField;
+    private JButton button;
+    int counter = 0;
+
+    GUI(){
 
         // Skapa ett nytt fönster (syns inte på skärmen)
         JFrame frame = new JFrame("Lektion 7 - Swing it magistern");
@@ -23,11 +30,12 @@ public class GUI {
         panel.add(label);
 
         // Skapa en ny knapp
-        JButton button = new JButton("Klicka på mig! Nu!");
+        button = new JButton("Klicka på mig! Nu!");
         // Lägg ut knappen på formuläret
         //frame.add(button);
         // Lägg till knappen till vår panel istället.
         panel.add(button);
+        button.addActionListener(this);
 
         // Skapa en TextArea
         JTextArea textArea = new JTextArea("Detta är min JTextArea!");
@@ -37,7 +45,7 @@ public class GUI {
         panel.add(textArea);
 
         // Skapa en TextField
-        JTextField textField = new JTextField("Detta är mitt jTextFieLd");
+        textField = new JTextField("Detta är mitt jTextField");
         // Lägg ut den på formuläret
         // frame.add(textField);
         // Lägg till TextField till vår panel istället.
@@ -47,4 +55,14 @@ public class GUI {
         frame.setVisible(true);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //System.out.println("Kitty");
+        //System.out.println(e.getActionCommand());
+        counter++;
+        textField.setText("Kitty ("+counter+")");
+        if (counter == 10) {
+            button.setEnabled(false);
+        }
+    }
 }
